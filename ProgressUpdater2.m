@@ -1,12 +1,12 @@
-function [ ] = ProgressUpdater2( ax, nw, v )
+function [ ] = ProgressUpdater2( dir, ax, nw, v )
     % Update the progress bar based on one of the parallel sets.
     % After testing, expand to multiple bars, one per set.
     vals = zeros(1, nw);
     x = zeros(1, nw);
     for i = 1:nw
         x(i) = i;
-        fn = strcat('gui_scratch/Prog_', num2str(i));
-        if nargin == 3
+        fn = fullfile(dir, strcat('/Prog_', num2str(i)));
+        if nargin == 4
             vals(i) = v;
             if v == 0
                     pf = fopen(fn, 'w');
