@@ -1,11 +1,11 @@
-function [ ] = ProgressUpdater( dir, ax, nw, v )
+function [ ] = ProgressUpdater( ~, ~, dir, ax, nw, v )
     % Update the progress bars for the parallel workers.
     vals = zeros(1, nw);
     x = zeros(1, nw);
     for i = 1:nw
         x(i) = i;
         fn = fullfile(dir, strcat('/Prog_', num2str(i)));
-        if nargin == 4
+        if nargin == 6
             vals(i) = v;
             if v == 0
                     pf = fopen(fn, 'w');
